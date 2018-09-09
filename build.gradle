@@ -37,4 +37,10 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '27.1.1'
+    butterknifeVersion = '8.8.1'
+    retrofitVersion = '2.2.0'
+    rxandroidVersion = '2.0.1'
+    rxjavaVersion = '2.1.7'
+    supportVersion = '28.0.0-rc02'
+    locationServiceVersion = '11.8.0'
 }
