@@ -21,8 +21,10 @@
             </intent-filter>
         </activity>
         <service
-            android:name="com.example.tugbacevizci.weatherapp.intentservices.LocationService"
+            android:name=".intentservices.LocationService"
             android:exported="false" />
+
+        <activity android:name=".ui.details.CityWeatherDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -14,5 +14,5 @@ public interface MainView extends BaseView {
 
     void setWeather(String weather);
 
-    void bindFavCityListSource(ArrayList<City> response);
+    void bindFavCityListSource(ArrayList<City> cities);
 }
