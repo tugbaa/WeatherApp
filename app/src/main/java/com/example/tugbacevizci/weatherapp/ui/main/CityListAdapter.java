@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHolder> {
 
@@ -60,6 +61,12 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
             this.view = itemView;
             ButterKnife.bind(this, itemView);
         }
+
+        @OnClick(R.id.city_container)
+        void onCityContainerClicked(){
+            listener.onCityClick(mCities.get(getAdapterPosition()));
+        }
+
     }
 
     public interface CityListener{

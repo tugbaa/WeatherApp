@@ -1,6 +1,7 @@
 package com.example.tugbacevizci.weatherapp.network.responses;
 
 import com.example.tugbacevizci.weatherapp.data.remote.WeatherData;
+import com.example.tugbacevizci.weatherapp.data.remote.WeatherDetailData;
 import com.example.tugbacevizci.weatherapp.network.base.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
@@ -19,5 +20,8 @@ public class WeatherResponse extends BaseResponse {
 
     @SerializedName("weather")
     public ArrayList<WeatherData> weatherData;
+
+    @SerializedName("main")
+    public WeatherDetailData weatherDetailData;
 
 }

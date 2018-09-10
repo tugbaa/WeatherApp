@@ -16,6 +16,7 @@ import com.example.tugbacevizci.weatherapp.R;
 import com.example.tugbacevizci.weatherapp.data.local.City;
 import com.example.tugbacevizci.weatherapp.intentservices.LocationService;
 import com.example.tugbacevizci.weatherapp.ui.base.BaseActivity;
+import com.example.tugbacevizci.weatherapp.ui.details.CityWeatherDetailsActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,9 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
         super.onCreate(savedInstanceState);
 
         presenter = new MainPresenterImpl(this, new MainInteractorImpl());
+
+        rvFavCities.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
         setCurrentCity();
 
@@ -90,8 +94,6 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
         tvCurrentLocation.setText(cityName);
         getWeatherByCityName(cityName);
 
-        rvFavCities.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL));
     }
 
     @Override
@@ -111,7 +113,6 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
 
     @Override
     public void bindFavCityListSource(ArrayList<City> cities) {
-
         if (cities.isEmpty()) {
             rvFavCities.setVisibility(View.GONE);
         } else {
@@ -153,6 +154,9 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
 
     @Override
     public void onCityClick(City clickedCity) {
+        Intent intent = new Intent(this,CityWeatherDetailsActivity.class);
+        intent.putExtra("city",clickedCity.cityName);
+        startActivity(intent);
 
     }
 }

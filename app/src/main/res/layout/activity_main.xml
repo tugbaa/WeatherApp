@@ -38,15 +38,16 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_centerInParent="true">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/text_margin"
+                        android:layout_gravity="center">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
                             android:id="@+id/txt_current_location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Current Location" />
+                            android:text="Current Location"
+                            android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
                     <TextView
@@ -65,7 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="16dp" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </LinearLayout>
 
                 <ImageView
@@ -73,7 +75,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:background="@drawable/ic_add" />
+                    android:background="@drawable/ic_add"
+                    android:layout_marginTop="@dimen/text_margin"
+                    android:layout_marginRight="@dimen/text_margin"/>
 
             </RelativeLayout>
 
@@ -81,7 +85,7 @@
                 android:id="@+id/rv_fav_cities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp">
+                android:layout_margin="@dimen/text_margin">
 
             </android.support.v7.widget.RecyclerView>
 
