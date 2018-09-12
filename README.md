@@ -2,7 +2,7 @@
 
 This is a simple client application for current location's weather and  forecast of favorites cities  with OWA.
 
-##Libraries Used
+## Libraries Used
 
 ```
 [Butter Knife](http://jakewharton.github.io/butterknife/).
