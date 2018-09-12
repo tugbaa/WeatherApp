@@ -1,7 +1,7 @@
 package com.example.tugbacevizci.weatherapp.ui.details;
 
 import com.example.tugbacevizci.weatherapp.network.base.ApiConsts;
-import com.example.tugbacevizci.weatherapp.network.NetworkService;
+import com.example.tugbacevizci.weatherapp.network.base.NetworkService;
 import com.example.tugbacevizci.weatherapp.network.observers.GetDayWeatherObserver;
 import com.example.tugbacevizci.weatherapp.network.observers.GetFavCityWeatherObserver;
 
