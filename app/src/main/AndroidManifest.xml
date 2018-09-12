@@ -24,7 +24,12 @@
             android:name=".intentservices.LocationService"
             android:exported="false" />
 
-        <activity android:name=".ui.details.CityWeatherDetailsActivity"></activity>
+        <activity android:name=".ui.details.CityWeatherDetailsActivity" />
+        <activity android:name=".ui.favoritecity.AddFavoriteCityActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="{$google_maps_key}" />
     </application>
 
 </manifest>

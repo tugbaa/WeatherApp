@@ -15,6 +15,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue("string", "WEATHER_DEFAULT_KEY", "8fd5215e7e3484554c25029acdaae975")
+            resValue "string", "google_maps_key",
+                    (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "AIzaSyDdfXVKFIO7xApvakNv8ZwGsKBxVFJmEBU")
         }
     }
 }
@@ -39,5 +41,12 @@ dependencies {
     implementation "com.android.support:support-v4:$rootProject.supportVersion"
     implementation "com.google.android.gms:play-services-location:$rootProject.locationServiceVersion"
     implementation "com.google.android.gms:play-services-maps:$rootProject.locationServiceVersion"
+
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 
 }

@@ -1,8 +1,6 @@
 package com.example.tugbacevizci.weatherapp.ui.main;
 
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -17,15 +15,18 @@ import com.example.tugbacevizci.weatherapp.data.local.City;
 import com.example.tugbacevizci.weatherapp.intentservices.LocationService;
 import com.example.tugbacevizci.weatherapp.ui.base.BaseActivity;
 import com.example.tugbacevizci.weatherapp.ui.details.CityWeatherDetailsActivity;
+import com.example.tugbacevizci.weatherapp.ui.favoritecity.AddFavoriteCityActivity;
+import com.example.tugbacevizci.weatherapp.util.LocationUtils;
+import com.example.tugbacevizci.weatherapp.util.SharedPrefsUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements MainView, CityListAdapter.CityListener {
+
+    private final String CITY_KEY = "city";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -43,9 +44,16 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
     private CityListAdapter adapter;
     private ArrayList<City> cities;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+            SharedPrefsUtil.getInstance().setCity(bundle.getString(CITY_KEY));
+        }
 
         presenter = new MainPresenterImpl(this, new MainInteractorImpl());
 
@@ -55,17 +63,6 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
         setCurrentCity();
 
         cities = new ArrayList<>();
-        String dummyCity = "Kayseri";
-        String dummyWeather = "Clouds";
-        cities.add(new City(dummyCity,dummyWeather));
-
-        String dummyCity2 = "Konya";
-        String dummyWeather2 = "Sunny";
-        cities.add(new City(dummyCity2,dummyWeather2));
-
-        String dummyCity3 = "Trabzon";
-        String dummyWeather3 = "Rainy";
-        cities.add(new City(dummyCity3, dummyWeather3));
 
         bindFavCityListSource(cities);
     }
@@ -113,13 +110,18 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
 
     @Override
     public void bindFavCityListSource(ArrayList<City> cities) {
+
+        SharedPrefsUtil.getInstance().getFavCities(cities);
+
         if (cities.isEmpty()) {
             rvFavCities.setVisibility(View.GONE);
         } else {
             rvFavCities.setVisibility(View.VISIBLE);
-            rvFavCities.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+            rvFavCities.setLayoutManager(new LinearLayoutManager(
+                    this, LinearLayoutManager.VERTICAL, false));
             adapter = new CityListAdapter(cities, this);
             rvFavCities.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
 
         }
 
@@ -130,33 +132,21 @@ public class MainActivity extends BaseActivity implements MainView, CityListAdap
     }
 
     private String getLocationName(double latitude, double longitude) {
-
-        String cityName = "Not Found";
-        Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
-        try {
-
-            List<Address> addresses = gcd.getFromLocation(latitude, longitude,
-                    1);
-
-            for (Address adrs : addresses) {
-                if (adrs != null) {
-                    String city = adrs.getAdminArea();
-                    if (city != null && !city.equals("")) {
-                        cityName = city;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return cityName;
+        return LocationUtils.convertLocationToCity(getApplicationContext(),latitude,longitude);
     }
 
     @Override
     public void onCityClick(City clickedCity) {
-        Intent intent = new Intent(this,CityWeatherDetailsActivity.class);
-        intent.putExtra("city",clickedCity.cityName);
+        Intent intent = new Intent(this, CityWeatherDetailsActivity.class);
+        intent.putExtra(CITY_KEY, clickedCity.cityName);
         startActivity(intent);
 
     }
+
+    @OnClick(R.id.btn_add_city)
+    public void onAddCityButtonClicked() {
+        Intent intent = new Intent(this, AddFavoriteCityActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -1,20 +1,18 @@
-package com.example.tugbacevizci.weatherapp.ui.main;
+package com.example.tugbacevizci.weatherapp.ui.favoritecity;
 
 import com.example.tugbacevizci.weatherapp.network.responses.WeatherResponse;
+import com.example.tugbacevizci.weatherapp.ui.main.MainInteractor;
 
-public class MainPresenterImpl implements MainPresenter, MainInteractor.GetCityListener {
+public class AddFavoriteCityPresenterImpl implements AddFavoriteCityPresenter,
+        MainInteractor.GetCityListener {
 
-    private MainView view;
+    private AddFavoriteCityView view;
     private MainInteractor interactor;
 
-    public MainPresenterImpl(MainView view, MainInteractor interactorr) {
+    public AddFavoriteCityPresenterImpl(AddFavoriteCityView view,MainInteractor interactor){
         this.view = view;
-        this.interactor = interactorr;
-    }
+        this.interactor = interactor;
 
-    @Override
-    public void setCurrentCity() {
-        view.startLocationService();
     }
 
     @Override
@@ -33,5 +31,6 @@ public class MainPresenterImpl implements MainPresenter, MainInteractor.GetCityL
             view.hideProgress();
             view.showErrorMessage(e.getMessage());
         }
+
     }
 }
