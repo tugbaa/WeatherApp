@@ -31,7 +31,9 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fav_city, parent, false));
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fav_city,
+                        parent,
+                        false));
     }
 
     @Override
@@ -63,13 +65,14 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
         }
 
         @OnClick(R.id.city_container)
-        void onCityContainerClicked(){
+        void onCityContainerClicked() {
             listener.onCityClick(mCities.get(getAdapterPosition()));
         }
 
     }
 
-    public interface CityListener{
+    public interface CityListener {
+
         void onCityClick(City clickedCity);
     }
 }

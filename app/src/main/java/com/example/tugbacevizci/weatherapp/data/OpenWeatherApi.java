@@ -9,10 +9,10 @@ import retrofit2.http.Query;
 
 public interface OpenWeatherApi {
 
-    @GET("weather")
+    @GET("weather/")
     Observable<WeatherResponse> getWeatherByCityName(@Query("q") String cityName,
                                                      @Query("appid") String appId);
-    @GET("forecast")
+    @GET("forecast/")
     Observable<WeatherDayResponse> getDayWeather(@Query("id") int cityId,
                                                  @Query("appid") String appId);
 }

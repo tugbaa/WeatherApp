@@ -8,8 +8,8 @@ public interface MainInteractor {
 
     interface GetCityListener {
 
-        void onGetWeatherByCitySuccess(WeatherResponse response);
+        void onGetWeatherByCityNameSuccess(WeatherResponse response);
 
-        void onGetWeatherByFailed(Throwable e, String errorMessage);
+        void onGetWeatherByCityNameFailed(Throwable e, String errorMessage);
     }
 }

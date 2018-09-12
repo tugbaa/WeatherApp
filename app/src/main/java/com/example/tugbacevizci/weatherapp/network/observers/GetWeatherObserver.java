@@ -15,12 +15,12 @@ public class GetWeatherObserver  extends BaseObserver<WeatherResponse> {
     @Override
     public void onNext(WeatherResponse response) {
         super.onNext(response);
-        listener.onGetWeatherByCitySuccess(response);
+        listener.onGetWeatherByCityNameSuccess(response);
     }
 
     @Override
     public void onError(Throwable e) {
         super.onError(e);
-        listener.onGetWeatherByFailed(e,e.getMessage());
+        listener.onGetWeatherByCityNameFailed(e,e.getMessage());
     }
 }
