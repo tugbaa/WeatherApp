@@ -1,4 +1,4 @@
-package com.example.tugbacevizci.weatherapp.data;
+package com.example.tugbacevizci.weatherapp.network.base;
 
 import com.example.tugbacevizci.weatherapp.network.responses.WeatherDayResponse;
 import com.example.tugbacevizci.weatherapp.network.responses.WeatherResponse;

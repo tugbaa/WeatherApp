@@ -1,6 +1,5 @@
-package com.example.tugbacevizci.weatherapp.network;
+package com.example.tugbacevizci.weatherapp.network.base;
 
-import com.example.tugbacevizci.weatherapp.data.OpenWeatherApi;
 import com.example.tugbacevizci.weatherapp.data.remote.ApiConsts;
 
 import okhttp3.OkHttpClient;
