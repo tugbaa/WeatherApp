@@ -1,7 +1,7 @@
 package com.example.tugbacevizci.weatherapp.network;
 
-import com.example.tugbacevizci.weatherapp.data.OpenWeatherApi;
-import com.example.tugbacevizci.weatherapp.data.remote.ApiConsts;
+import com.example.tugbacevizci.weatherapp.network.base.OpenWeatherApi;
+import com.example.tugbacevizci.weatherapp.network.base.ApiConsts;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

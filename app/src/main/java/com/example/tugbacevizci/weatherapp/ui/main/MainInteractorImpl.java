@@ -1,6 +1,6 @@
 package com.example.tugbacevizci.weatherapp.ui.main;
 
-import com.example.tugbacevizci.weatherapp.data.remote.ApiConsts;
+import com.example.tugbacevizci.weatherapp.network.base.ApiConsts;
 import com.example.tugbacevizci.weatherapp.network.NetworkService;
 import com.example.tugbacevizci.weatherapp.network.observers.GetWeatherObserver;
 
