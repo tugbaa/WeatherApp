@@ -1,6 +1,6 @@
 # WeatherApp
 
-This is a simple client application for current location's weather and  forecast of favorites cities  with OWA.
+This is a simple client application for current location's weather and  forecast of favorites cities  with [Open Weather Api](https://openweathermap.org/).
 
 ## Libraries Used
 

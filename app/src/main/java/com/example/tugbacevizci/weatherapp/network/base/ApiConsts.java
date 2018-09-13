@@ -1,4 +1,4 @@
-package com.example.tugbacevizci.weatherapp.data.remote;
+package com.example.tugbacevizci.weatherapp.network.base;
 
 public class ApiConsts {
 

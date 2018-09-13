@@ -44,6 +44,4 @@ ext {
     supportVersion = '28.0.0-rc02'
     locationServiceVersion = '11.8.0'
 
-    roomVersion = '1.0.0'
-    archLifecycleVersion = '1.1.0'
 }
